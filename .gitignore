@@ -12,6 +12,8 @@ node_modules
 dist
 dist-ssr
 coverage
+auto-imports.d.ts
+components.d.ts
 *.local
 
 /cypress/videos/

@@ -1,0 +1,73 @@
+export default {
+  xlt: 'flex items-start',
+  xlc: 'flex items-center',
+  xlb: 'flex items-end',
+  xls: 'flex items-stretch',
+  xlBaseline: 'flex items-baseline',
+
+  xct: 'flex justify-center ',
+  xcc: 'flex justify-center items-center',
+  xcb: 'flex justify-center items-end',
+  xcs: 'flex justify-center items-stretch',
+  xcBaseline: 'flex justify-center items-baseline',
+
+  xrt: 'flex justify-end ',
+  xrc: 'flex justify-end items-center',
+  xrb: 'flex justify-end items-end',
+  xrs: 'flex justify-end items-stretch',
+  xrBaseline: 'flex justify-end items-baseline',
+
+  xbt: 'flex justify-between ',
+  xbc: 'flex justify-between items-center',
+  xbb: 'flex justify-between items-end',
+  xbs: 'flex justify-between items-stretch',
+  xbBaseline: 'flex justify-between items-baseline',
+  rxbc: 'flex justify-between items-center flex-row-reverse',
+
+  xat: 'flex justify-around ',
+  xac: 'flex justify-around items-center',
+  xab: 'flex justify-around items-end',
+  xas: 'flex justify-around items-stretch',
+  xaBaseline: 'flex justify-around items-baseline',
+
+  xet: 'flex justify-evenly ',
+  xec: 'flex justify-evenly items-center',
+  xeb: 'flex justify-evenly items-end',
+  xes: 'flex justify-evenly items-stretch',
+  xeBaseline: 'flex justify-evenly items-baseline',
+
+  ylt: 'flex flex-col ',
+  ylc: 'flex flex-col justify-center',
+  ylb: 'flex flex-col justify-end',
+  ylbe: 'flex flex-col justify-between',
+  ylar: 'flex flex-col justify-around',
+  yle: 'flex flex-col justify-evenly',
+
+  yct: 'flex flex-col items-center',
+  ycc: 'flex flex-col items-center justify-center',
+  ycb: 'flex flex-col items-center justify-end',
+  ycbe: 'flex flex-col items-center justify-between',
+  ycar: 'flex flex-col items-center justify-around',
+  yce: 'flex flex-col items-center justify-evenly',
+
+  yrt: 'flex flex-col items-end',
+  yrc: 'flex flex-col items-end justify-center',
+  yrb: 'flex flex-col items-end justify-end',
+  yrbe: 'flex flex-col items-end justify-between',
+  yrar: 'flex flex-col items-end justify-around',
+  yre: 'flex flex-col items-end justify-evenly',
+
+  yst: 'flex flex-col items-stretch',
+  ysc: 'flex flex-col items-stretch justify-center',
+  ysb: 'flex flex-col items-stretch justify-end',
+  ysbe: 'flex flex-col items-stretch justify-between',
+  ysar: 'flex flex-col items-stretch justify-around',
+  yse: 'flex flex-col items-stretch justify-evenly',
+
+  ybat: 'flex flex-col items-baseline',
+  ybac: 'flex flex-col items-baseline justify-center',
+  ybab: 'flex flex-col items-baseline justify-end',
+  ybabe: 'flex flex-col items-baseline justify-between',
+  ybaar: 'flex flex-col items-baseline justify-around',
+  ybae: 'flex flex-col items-baseline justify-evenly'
+};
