@@ -55,6 +55,7 @@ export default defineConfig({
       deleteOriginFile: false  // 压缩后是否删除源文件
     }),
     AutoImport({
+      dirs: ['./src/store', './src/utils'],
       resolvers: [ElementPlusResolver()],
       imports: [
         "vue",
