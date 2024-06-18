@@ -14,6 +14,7 @@ import cesium from 'vite-plugin-cesium';
 import { presetAttributify, presetUno, presetWebFonts } from 'unocss';
 import customCss from './unocssCustom/index';
 import removeConsole from "vite-plugin-remove-console";
+import Pages from "vite-plugin-pages";  // 动态路表获取
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -46,6 +47,13 @@ export default defineConfig({
         // }),
       ],
       shortcuts: { ...customCss }
+    }),
+    Pages({
+      dirs: [
+        { dir: 'src/views', baseRoute: '/' },
+      ],
+      extensions: ["vue"],//文件后缀
+      exclude: ["**/*components*/**", "**/*copy*", "**/*bak*", "**/_bak*", "**/副本*", "**/*备份*"] //排除包含components目录的文件
     }),
     viteCompression({
       verbose: true, // 是否在控制台中输出压缩结果

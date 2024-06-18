@@ -3,6 +3,8 @@
     <template #header>
       <div id="LinHeader" class="p-20px">header</div>
     </template>
+    <template #tagView>tagView</template>
+    <template #slider>slider</template>
     <template #content>
       <router-view v-slot="{ Component }">
         <Transition name="fade" mode="out-in" appear>
@@ -12,7 +14,9 @@
         </Transition>
       </router-view>
     </template>
-    <template #footer>底部</template>
+    <template #footer>
+      <el-button @click="router.push('/homePage')">cesium</el-button>
+    </template>
   </LinLayout>
 </template>
 <script lang="ts">
@@ -21,7 +25,8 @@ export default {
 }
 </script>
 <script setup lang="ts">
-
+const route = useRoute()
+const router = useRouter()
 </script>
 
 <style lang="scss" scoped>

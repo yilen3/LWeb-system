@@ -5,14 +5,16 @@
       <slot name="header" />
     </header>
     <div class="flex-1 xbc gap-20px">
-      <section class="h-full w-300px"></section>
+      <section class="h-full w-300px">
+        <slot name="slider" />
+      </section>
       <!-- 三部分，tagView，content，footer -->
       <div class="flex-1 h-full yst">
-        <div v-if="$slots.tabView" class="tag-view w-full gap-1rem xlc px-20px py-10px">
-          <slot name="tabView" />
+        <div v-if="$slots.tagView" class="tag-view w-full gap-1rem xlc px-20px py-10px">
+          <slot name="tagView" />
         </div>
         <!-- 主要内容部分 -->
-        <div class="flex-1 w-full bg-light-500 p-15px">
+        <div class="flex-1 w-full p-15px">
           <slot name="content" />
         </div>
         <!-- 底部 -->

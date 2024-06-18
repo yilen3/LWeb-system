@@ -3,7 +3,6 @@ export const useRandomColor = () => {
   const g = (Math.floor(Math.random() * 255)).toString(16);
   const b = (Math.floor(Math.random() * 255)).toString(16);
   const a = (Math.random()).toString(16).slice(2, 4);
-  console.log(a);
   return `#` + r + g + b + a;
 }
 export const handleDecimal = (value: number | string | null | undefined, decimalPlaces: number = 4): number => {
