@@ -4,7 +4,11 @@
       <div id="LinHeader" class="p-20px">header</div>
     </template>
     <template #tagView>tagView</template>
-    <template #slider>slider</template>
+    <template #slider>
+      <!-- 可拖动边框变换大小 -->
+      <div v-dragResize="dragOption" ref="sliderRef" class="bg-green-400 h-full relative">
+      </div>
+    </template>
     <template #content>
       <router-view v-slot="{ Component }">
         <Transition name="fade" mode="out-in" appear>
@@ -27,6 +31,16 @@ export default {
 <script setup lang="ts">
 const route = useRoute()
 const router = useRouter()
+// 侧边栏ref
+const sliderRef = ref<HTMLElement | null>(null)
+const dragOption = ref({
+  minWidth: 200,
+  maxWidth: 800,
+  direction: ['top', 'right', 'bottom', 'left'],
+  minHeight: 200,
+  maxHeight: 800,
+})
+
 </script>
 
 <style lang="scss" scoped>
