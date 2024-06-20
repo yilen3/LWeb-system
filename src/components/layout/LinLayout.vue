@@ -5,7 +5,7 @@
       <slot name="header" />
     </header>
     <div class="flex-1 xbc gap-20px">
-      <section class="h-full w-300px">
+      <section class="h-full relative inline-table w-300px">
         <slot name="slider" />
       </section>
       <!-- 三部分，tagView，content，footer -->
@@ -18,7 +18,7 @@
           <slot name="content" />
         </div>
         <!-- 底部 -->
-        <section v-if="$slots.footer" class="w-full">
+        <section v-if="$slots.footer" class="w-full sticky0000">
           <slot name="footer" />
         </section>
       </div>

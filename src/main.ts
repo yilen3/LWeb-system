@@ -1,9 +1,10 @@
 import 'uno.css';
 import '@/style/index.scss'
 import '@unocss/reset/normalize.css';
+import './utils/mouseActive'
+import './utils/driver.ts'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { useDragResize } from './utils/tool'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/el-loading.css'
@@ -14,18 +15,14 @@ import App from './App.vue'
 import router from './router'
 import * as echarts from 'echarts'
 import VueECharts from 'vue-echarts'
+import VueResizable from 'vue-resizable'
 const app = createApp(App)
 app.component('v-chart', VueECharts)
 app.component('echarts', echarts)
+app.component('VueResizable', VueResizable)
 app.use(createPinia())
 app.use(ElementPlus, {
   locale: zhCn,
 })
-// 创建拖拽改变大小的指令
-// el:绑定的节点，binding：绑定命令的值
-app.directive('dragResize', (el: HTMLElement, binding: any, vNode: any, prevNode: any) => {
-  useDragResize(el, binding, vNode, prevNode)
-})
 app.use(router)
-
 app.mount('#app')

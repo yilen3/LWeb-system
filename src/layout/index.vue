@@ -1,13 +1,19 @@
 <template>
   <LinLayout>
     <template #header>
-      <div id="LinHeader" class="p-20px">header</div>
+      <vue-resizable class="w-full sticky0000 shadow-xl shadow-gray-100" :maxHeight="100" :minHeight="50"
+        :active="['b']">
+        <div class="xac w-full h-80px">123</div>
+      </vue-resizable>
     </template>
     <template #tagView>tagView</template>
     <template #slider>
       <!-- 可拖动边框变换大小 -->
-      <div v-dragResize="dragOption" ref="sliderRef" class="bg-green-400 h-full relative">
-      </div>
+      <vue-resizable class="shadow-xl shadow-gray-300 w-full" :minWidth="300" :maxWidth="500" :active="['r']">
+        <el-scrollbar class="yct gap-10px">
+          <div class="w-full flex-1" v-for="item in 100" :key="item">{{ item }}</div>
+        </el-scrollbar>
+      </vue-resizable>
     </template>
     <template #content>
       <router-view v-slot="{ Component }">
@@ -19,7 +25,7 @@
       </router-view>
     </template>
     <template #footer>
-      <el-button @click="router.push('/homePage')">cesium</el-button>
+      <el-button class="homePage" @click="router.push('/homePage')">cesium</el-button>
     </template>
   </LinLayout>
 </template>
@@ -33,13 +39,6 @@ const route = useRoute()
 const router = useRouter()
 // 侧边栏ref
 const sliderRef = ref<HTMLElement | null>(null)
-const dragOption = ref({
-  minWidth: 200,
-  maxWidth: 800,
-  direction: ['top', 'right', 'bottom', 'left'],
-  minHeight: 200,
-  maxHeight: 800,
-})
 
 </script>
 

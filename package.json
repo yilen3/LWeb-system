@@ -20,6 +20,7 @@
     "vite-plugin-cesium": "^1.2.22",
     "vite-plugin-pages": "^0.32.2",
     "vue": "^3.4.21",
+    "vue-resizable": "^2.1.7",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
