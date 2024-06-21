@@ -10,11 +10,20 @@
 </template>
 
 <script setup lang="ts">
+import axios from 'axios'
 const clock = ref()
 const timestamps = useTimestamp()
 watch(() => timestamps, (newValue, oldValue) => {
   clock.value = dayjs(newValue.value)
 }, { deep: true })
+onMounted(() => {
+  getJSON()
+})
+const getJSON = async () => {
+  const res = await axios.get('http://localhost:8081/lineData')
+  console.log('%c [ res ]-24', 'font-size:13px; background:pink; color:#bf2c9f;', res)
+}
+
 </script>
 
 <style scoped></style>

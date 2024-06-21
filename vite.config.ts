@@ -94,5 +94,19 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    },
+    open: true,
+    host: '0.0.0.0',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    }
+  },
 })

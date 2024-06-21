@@ -9,4 +9,4 @@ const driverObj = driver({
     { element: 'div', popover: { title: 'Title', description: 'Description' } },
   ]
 });
-driverObj.drive()
+// driverObj.drive()

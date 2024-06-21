@@ -1,0 +1,63 @@
+{
+  "scoreList": [
+    {
+      "id": 1,
+      "userName": "张三",
+      "age": 12,
+      "sex": "男",
+      "score": { "yuWen": 10, "shuXue": 20, "yingYu": 30 }
+    },
+    {
+      "id": 2,
+      "userName": "李四",
+      "age": 21,
+      "sex": "女",
+      "score": { "yuWen": 12, "shuXue": 45, "yingYu": 37 }
+    },
+    {
+      "id": 3,
+      "userName": "王五",
+      "age": 56,
+      "sex": "男",
+      "score": { "yuWen": 12, "shuXue": 20, "yingYu": 30 }
+    },
+    {
+      "id": 4,
+      "userName": "赵六",
+      "age": 23,
+      "sex": "女",
+      "score": { "yuWen": 19, "shuXue": 21, "yingYu": 65 }
+    },
+    {
+      "id": 5,
+      "userName": "严七",
+      "age": 12,
+      "sex": "男",
+      "score": { "yuWen": 34, "shuXue": 67, "yingYu": 43 }
+    },
+    {
+      "id": 6,
+      "userName": "沈八",
+      "age": 43,
+      "sex": "女",
+      "score": { "yuWen": 56, "shuXue": 76, "yingYu": 30 }
+    },
+    {
+      "id": 7,
+      "userName": "钱九",
+      "age": 13,
+      "sex": "男",
+      "score": { "yuWen": 24, "shuXue": 89, "yingYu": 30 }
+    },
+    {
+      "id": 8,
+      "userName": "张十",
+      "age": 12,
+      "sex": "女",
+      "score": { "yuWen": 10, "shuXue": 54, "yingYu": 31 }
+    }
+  ],
+  "data": {
+    "name": "name"
+  }
+}
