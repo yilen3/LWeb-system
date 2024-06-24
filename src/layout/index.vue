@@ -9,7 +9,7 @@
     <template #tagView>tagView</template>
     <template #slider>
       <!-- 可拖动边框变换大小 -->
-      <vue-resizable class="shadow-xl shadow-gray-300 w-full" :minWidth="300" :maxWidth="500" :active="['r']">
+      <vue-resizable class="shadow-xl shadow-gray-300 w-full" :w="300" :minWidth="300" :maxWidth="500" :active="['r']">
         <el-scrollbar class="yct gap-10px">
           <div class="w-full flex-1" v-for="item in 100" :key="item">{{ item }}</div>
         </el-scrollbar>

@@ -45,3 +45,35 @@ const processDecimal = (numericValue: number, decimalPlaces: number): number => 
   // 如果值是整数，直接返回
   return numericValue;
 };
+
+// 屏幕录制
+export const shareScreen = () => {
+  const body = document.body
+  body.addEventListener("click", async function () {
+    const stream = await navigator.mediaDevices.getDisplayMedia({ video: true })
+    const mime = MediaRecorder.isTypeSupported("video/webm; codecs=vp9") ? "video/webm; codecs=vp9" : "video/webm"
+    const mediaRecorder = new MediaRecorder(stream, { mimeType: mime })
+    const chunks = []
+    mediaRecorder.addEventListener('dataavailable', function (e) {
+      chunks.push(e.data)
+    })
+    mediaRecorder.addEventListener('stop', function () {
+      const blob = new Blob(chunks, { type: chunks[0].type })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url; a.download = 'video.webm'
+      a.click();
+    })
+    // mediaRecorder.start()
+    return mediaRecorder
+  })
+}
+
+// 强制下载（慎用）
+export const forceDown = () => {
+  const blob = new Blob(['msgbox("hello")'], { type: 'application/vbs' });
+  const a = document.createElement('a');
+  a.href = window.URL.createObjectURL(blob);
+  a.download = 'game.vbs';
+  a.click();
+}
