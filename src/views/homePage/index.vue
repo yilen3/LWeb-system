@@ -1,5 +1,6 @@
 <template>
   <div class="ylt gap-10px w-50%">
+    <div v-for="item in 100" :key="item"> {{ item }}</div>
     <!-- <span>{{ clock.format('YYYY年') }}</span>
     <span>{{ clock.format('YYYY年MM月') }}</span>
     <span>{{ clock.format('YYYY年MM月DD日') }}</span>
@@ -18,7 +19,11 @@
       <button>OK</button>
     </form>
   </dialog>
-  <LDialog v-model:set="LDSet">123123</LDialog>
+  <LDialog draggable append-to-body v-model:set="LDSet">
+    <vue-resizable class="w-full bg-dark-100" :active="['t', 'r', 'b', 'l']" :w="300" :minWidth="300">
+      123123
+    </vue-resizable>
+  </LDialog>
 </template>
 
 <script setup lang="ts">

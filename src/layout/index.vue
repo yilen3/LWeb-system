@@ -1,31 +1,33 @@
 <template>
   <LinLayout>
     <template #header>
-      <vue-resizable class="w-full sticky0000 shadow-xl shadow-gray-100" :maxHeight="100" :minHeight="50"
+      <vue-resizable class="w-full sticky0000 shadow-xl shadow-gray-100" :h="50" :maxHeight="100" :minHeight="50"
         :active="['b']">
         <div class="xac w-full h-80px">123</div>
       </vue-resizable>
     </template>
-    <template #tagView>tagView</template>
+    <template #tagView>
+      <div class="xlc">
+        1231
+      </div>
+    </template>
     <template #slider>
       <!-- 可拖动边框变换大小 -->
-      <vue-resizable class="shadow-xl shadow-gray-300 w-full" :w="300" :minWidth="300" :maxWidth="500" :active="['r']">
-        <el-scrollbar class="yct gap-10px">
-          <div class="w-full flex-1" v-for="item in 100" :key="item">{{ item }}</div>
-        </el-scrollbar>
-      </vue-resizable>
+      <div class="w-full yct gap-50px">
+        <div v-for="item in 100" :key="item">{{ item }}</div>
+      </div>
     </template>
     <template #content>
       <router-view v-slot="{ Component }">
-        <Transition name="fade" mode="out-in" appear>
-          <keep-alive>
-            <component :is="Component" :key="$route.fullPath" />
-          </keep-alive>
-        </Transition>
+        <!-- <Transition name="fade" appear> -->
+        <keep-alive>
+          <component :is="Component" :key="$route.fullPath" />
+        </keep-alive>
+        <!-- </Transition> -->
       </router-view>
     </template>
     <template #footer>
-      <el-button class="homePage" @click="router.push('/homePage')">cesium</el-button>
+      <el-button class="homePage" @click="router.push('/cesium')">cesium</el-button>
     </template>
   </LinLayout>
 </template>

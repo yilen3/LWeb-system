@@ -14,6 +14,7 @@ import cesium from 'vite-plugin-cesium';
 import { presetAttributify, presetUno, presetWebFonts } from 'unocss';
 import customCss from './unocssCustom/index';
 import removeConsole from "vite-plugin-remove-console";
+import "cesium/Build/Cesium/Widgets/widgets.css";
 import Pages from "vite-plugin-pages";  // 动态路表获取
 // https://vitejs.dev/config/
 export default defineConfig({

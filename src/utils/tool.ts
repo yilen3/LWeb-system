@@ -77,3 +77,8 @@ export const forceDown = () => {
   a.download = 'game.vbs';
   a.click();
 }
+
+// 检测类型
+export const detectType = (data: any) => {
+  return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
+}

@@ -11,13 +11,13 @@ export const router = ({
     {
       path: '/cesium',
       name: 'cesium',
-      children: [
-        {
-          path: '/cesium/cesiumDemo',
-          name: 'cesiumDemo',
-          component: () => import('@/views/cesium/cesiumDemo/index.vue')
-        },
-      ]
+      component: () => import('@/views/cesium/cesiumDemo/index.vue')
+      // children: [
+      //   {
+      //     path: '/cesium/cesiumDemo',
+      //     name: 'cesiumDemo',
+      //   },
+      // ]
     }
   ]
 })

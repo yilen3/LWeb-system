@@ -1,4 +1,11 @@
 <template>
+  <div class="absolute left-50px top-50px z-999 xcc gap-5">
+    <el-select class="w-100px" v-model="drawType" clearable placeholder="请选择形状">
+      <el-option label="点" value="point" />
+      <el-option label="线" value="line" />
+      <el-option label="多边形" value="polygon" />
+    </el-select>
+  </div>
   <div class="overflow-hidden absolute0000 z-999 pointer-events-none">
     <div id="htmlOverlay" class="absolute z-999 text-light-50 bg-dark-300 opacity-70 yst pointer-events-auto"
       style="display: none;">
@@ -11,10 +18,89 @@
   <div ref="cesiumRef" id="cesiumId" class="w-full h-full">
   </div>
   <div id="infoboxs" class="absolute left-30% bottom-5 z-999 text-light-50"></div>
+  <!-- <EDialog v-model:set="MS" :page="false" class="z-999" :show-close="false">
+    <el-scrollbar height="500px">
+      <el-form-item label="想要形成的类型" prop="account">
+        <el-select v-model="growUpShape">
+          <el-option v-for="item in typesOption" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
+      </el-form-item>
+      <el-form v-if="growUpShape === 'polygon'" ref="formRef" :model="MS.data" label-width="150px">
+        <el-form-item label="是否使用位置的高程">
+          <el-switch v-model="MS.data.isUseHeight" />
+        </el-form-item>
+        <el-form-item label="高度/厚度">
+          <el-input-number v-model="MS.data.height" controls-position="right" />
+        </el-form-item>
+        <el-form-item label="外扩高度">
+          <el-input-number v-model="MS.data.extrudedHeight" controls-position="right" />
+        </el-form-item>
+        <el-form-item label="填充的颜色">
+          <el-color-picker v-model="MS.data.fillColor" show-alpha color-format="hex" />
+        </el-form-item>
+        <el-form-item label="透明度">
+          <el-slider v-model="MS.data.opacity" :min="0" :max="1" :step="0.1" show-input />
+        </el-form-item>
+        <el-form-item label="是否显示外框线">
+          <el-switch v-model="MS.data.showOutline" />
+        </el-form-item>
+        <template v-if="MS.data.showOutline">
+          <el-form-item label="外框线宽度">
+            <el-input-number v-model="MS.data.outlineWidth" controls-position="right" />
+          </el-form-item>
+          <el-form-item label="外框线颜色">
+            <el-color-picker v-model="MS.data.outlineColor" show-alpha color-format="hex" />
+          </el-form-item>
+        </template>
+<template v-if="MS.data.extrudedHeight">
+          <el-form-item label="是否显示顶部">
+            <el-switch v-model="MS.data.isCloseTop" />
+          </el-form-item>
+          <el-form-item label="是否显示底部">
+            <el-switch v-model="MS.data.isCloseBottom" />
+          </el-form-item>
+        </template>
+</el-form>
+<el-form v-if="growUpShape === 'wall'" ref="formRef" :model="MS.data" label-width="150px">
+  <el-form-item label="墙体高度">
+    <el-input-number v-model="MS.data.wallHeight" controls-position="right" />
+  </el-form-item>
+  <el-form-item label="填充的颜色">
+    <el-color-picker v-model="MS.data.fillColor" show-alpha color-format="hex" />
+  </el-form-item>
+  <el-form-item label="透明度">
+    <el-slider v-model="MS.data.opacity" :min="0" :max="1" :step="0.1" show-input />
+  </el-form-item>
+  <el-form-item label="是否显示外框线">
+    <el-switch v-model="MS.data.showOutline" />
+  </el-form-item>
+  <template v-if="MS.data.showOutline">
+          <el-form-item label="外框线宽度">
+            <el-input-number v-model="MS.data.outlineWidth" controls-position="right" />
+          </el-form-item>
+          <el-form-item label="外框线颜色">
+            <el-color-picker v-model="MS.data.outlineColor" show-alpha color-format="hex" />
+          </el-form-item>
+        </template>
+  <template v-if="MS.data.extrudedHeight">
+          <el-form-item label="是否显示顶部">
+            <el-switch v-model="MS.data.isCloseTop" />
+          </el-form-item>
+          <el-form-item label="是否显示底部">
+            <el-switch v-model="MS.data.isCloseBottom" />
+          </el-form-item>
+        </template>
+</el-form>
+<div class="xrc gap-5">
+  <el-button @click="dialogClose">取消</el-button>
+  <el-button type="primary" @click="handleEntity">确定</el-button>
+</div>
+</el-scrollbar>
+</EDialog> -->
 </template>
 
 <script setup lang="ts">
-// import "cesium/Build/Cesium/Widgets/widgets.css";
+import "cesium/Build/Cesium/Widgets/widgets.css";
 import * as Cesium from 'cesium'
 const drawType = ref<string>('')
 const drawColor = ref<string>('WHITE')
@@ -53,13 +139,12 @@ const canShowPop = computed(() => {
   return drawType.value === ''
 })
 // 指定token
-// Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3MDZiNWFhYS01Zjk5LTQ5ZjktYWY5OC0xYzY5ZTNmODRhZjUiLCJpZCI6MTg1MDE5LCJpYXQiOjE3MDI4NzI5OTN9.lCUQNRQxVIdftGR1USgw22HPpvflB_LC_6bylIuUMN8'
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3MDZiNWFhYS01Zjk5LTQ5ZjktYWY5OC0xYzY5ZTNmODRhZjUiLCJpZCI6MTg1MDE5LCJpYXQiOjE3MDI4NzI5OTN9.lCUQNRQxVIdftGR1USgw22HPpvflB_LC_6bylIuUMN8'
 let viewer: any, label: any, helper: any, handler: any
 
 let overlay: any;
 
 onMounted(() => {
-
   // 创建涂层
   viewer = new Cesium.Viewer("cesiumId", {
     // 显示地形
@@ -102,11 +187,11 @@ onMounted(() => {
   // 创建一个实例集合体，label， point， billboard
   const entity = viewer.entities.add({
     position: Cesium.Cartesian3.fromDegrees(123.43911896314233, 41.81440026458232, 100),
-    // billboard: {
-    //   image: '/dikuang/bigScreen/btn1.png',
-    //   scale: 0.3,
-    //   color: Cesium.Color.RED
-    // },
+    billboard: {
+      image: '/dikuang/bigScreen/btn1.png',
+      scale: 0.3,
+      color: Cesium.Color.RED
+    },
     label: {
       text: '测试',
       font: '14px',
